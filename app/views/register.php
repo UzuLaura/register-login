@@ -4,8 +4,6 @@ if (isset($_SESSION['user'])) {
     header('Location: /');
 }
 
-var_dump($_SESSION);
-
 ?>
 <!doctype html>
 <html lang="en">
