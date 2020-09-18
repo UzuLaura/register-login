@@ -15,7 +15,7 @@ class LoginController
      */
     public function login()
     {
-        $user = User::where("email = \"${_POST['email']}\"");
+        $user = User::where(['email' => $_POST['email']]);
 
         if ($user && password_verify($_POST['password'], $user[0]->password)) {
 

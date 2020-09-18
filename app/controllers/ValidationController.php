@@ -221,7 +221,7 @@ class ValidationController
         $modelClass = "App\Models\\$model";
 
         if ($value) {
-            $existingValue = $modelClass::where("`$field` = \"$value\"");
+            $existingValue = $modelClass::where([$field => $value]);
 
             if ($existingValue) {
                 if($existingValue[0]->$field === $value) {

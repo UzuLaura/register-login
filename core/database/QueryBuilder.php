@@ -85,18 +85,31 @@ class QueryBuilder
      * Get data from DB.
      *
      * @param string $table - name of DB table
-     * @param string $condition - 'where' condition
+     * @param array $condition - 'where' condition
      * @return array
      */
-    public function get(string $table, string $condition): array
+    public function get(string $table, array $condition): array
     {
+
+        $formattedCondition = '';
+        $separator = ', ';
+
+        foreach ($condition as $key => $item) {
+
+            if ($key === array_key_last($condition)) {
+                $separator = '';
+            }
+
+            $formattedCondition .= $key . ' = :' . $key . $separator;
+        }
+
         // Sql query
-        $sql = "select * from $table where $condition";
+        $sql = "select * from $table where $formattedCondition";
 
         try {
 
             $statement = $this->pdo->prepare($sql);
-            $statement->execute();
+            $statement->execute($condition);
 
         } catch (Exception $e) {
 

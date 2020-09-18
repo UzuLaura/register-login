@@ -28,7 +28,7 @@ class User
     /**
      * Get single user data from DB.
      *
-     * @param int|string $condition
+     * @param int|array $condition
      * @return mixed
      *
      * @throws \Exception
@@ -42,12 +42,12 @@ class User
      * Get single user data from DB
      * where user data meets condition.
      *
-     * @param string $condition to look for (mysql where condition)
+     * @param array $condition to look for (mysql where condition)
      * @return mixed
      *
      * @throws \Exception
      */
-    public static function where(string $condition)
+    public static function where(array $condition)
     {
         return self::get($condition);
     }
