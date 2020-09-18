@@ -20,7 +20,7 @@ class Router
      * @param string $file path to router file
      * @return Router
      */
-    public static function load($file)
+    public static function load(string $file)
     {
         $router = new self;
 
@@ -35,7 +35,7 @@ class Router
      * @param string $uri router uri
      * @param string $controller class and method to access
      */
-    public function get($uri, $controller)
+    public function get(string $uri, string $controller)
     {
         $this->routes['GET'][$uri] = $controller;
     }
@@ -44,9 +44,9 @@ class Router
      * Handle post requests.
      *
      * @param string $uri router uri
-     * @param $controller class and method to access
+     * @param string $controller class and method to access
      */
-    public function post($uri, $controller)
+    public function post(string $uri, string $controller)
     {
         $this->routes['POST'][$uri] = $controller;
     }
@@ -60,7 +60,7 @@ class Router
      *
      * @throws Exception
      */
-    public function redirect($uri, $requestType)
+    public function redirect(string $uri, string $requestType)
     {
         if (array_key_exists($uri, $this->routes[$requestType])) {
 
@@ -79,13 +79,13 @@ class Router
     /**
      * Call controller method.
      *
-     * @param $controller
-     * @param $action
+     * @param string $controller
+     * @param string $action
      * @return mixed
      *
      * @throws Exception
      */
-    protected function callAction($controller, $action)
+    protected function callAction(string $controller, string $action)
     {
         $controllerObj = new $controller;
 

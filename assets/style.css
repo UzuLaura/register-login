@@ -1,8 +1,118 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
 
+/* Color  variables */
+:root {
+    --light-gray-color: #f6f2f6;
+    --gray-color: #dbdbdb;
+    --primary-color: #00c28f;
+    --primary-highlight-color: #00b886;
+    --secondary-color: #e0e0e0;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Nunito', sans-serif;
+}
+
+body {
+    background: var(--secondary-color);
+}
+
+h2 {
+    padding-bottom: 10px;
+}
+
+.container {
+    display: block;
+    margin: 0 auto;
+    width: 1200px;
+}
+
+.navbar {
+    display: flex;
+    background: var(--primary-color);
+    padding: 20px 0;
+    font-size: 1.2rem;
+}
+
+.navbar-item {
+    text-decoration: none;
+    color: white;
+    margin-right: 10px;
+}
+
+.navbar-item:last-child {
+    margin-right: 0;
+}
+
+.navbar-item:hover {
+    color: var(--light-gray-color);
+}
+
+.card {
+    margin: 10px auto;
+    padding: 30px;
+    background: var(--light-gray-color);
+    border: 1px solid var(--gray-color);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+}
+
+.form-group input {
+    padding: 7px;
+    border: 1px solid var(--gray-color);
+}
+
+.form-group input:focus {
+    outline: none;
+    border: 1px solid var(--primary-color);
+}
+
+.form-group input::placeholder {
+    color: var(--gray-color);
+}
+
+.notification {
+    background: #ffb9c1;
+    border: 1px solid #ff938e;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.card,
+.form-group input,
+.notification,
+.button {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.button {
+    background: var(--primary-color);
+    padding: 10px 25px;
+    text-decoration: none;
+    color: white;
+    border: none;
+}
+
+.button:hover {
+    background: var(--primary-highlight-color);
+    cursor: pointer;
+}
+
+.info-block p {
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 90vw;
+    }
 }

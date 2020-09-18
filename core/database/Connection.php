@@ -9,7 +9,7 @@ class Connection
      * @param array $config database connection information
      * @return PDO
      */
-    public static function make($config)
+    public static function make(array $config)
     {
         try {
 

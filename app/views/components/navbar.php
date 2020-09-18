@@ -1,10 +1,10 @@
-<nav>
-    <ul>
+<nav class="navbar">
+    <div class="container">
         <?php if (!isset($_SESSION['user'])): ?>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
+            <a class="navbar-item" href="/login">Login</a>
+            <a class="navbar-item" href="/register">Register</a>
         <?php else: ?>
-            <li><a href="/logout">Logout</a></li>
+            <a class="navbar-item" href="/logout">Logout</a>
         <?php endif; ?>
-    </ul>
+    </div>
 </nav>

@@ -1,7 +1,14 @@
 {
+  "name": "laura/register-login",
+  "description": "Simple app with registration and login functionality",
+  "type": "project",
   "autoload": {
     "classmap": [
       "./"
     ]
+  },
+  "optimize-autoloader": true,
+  "require": {
+    "php": ">=7.0"
   }
 }

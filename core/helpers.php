@@ -8,7 +8,7 @@
  *
  * @return mixed
  */
-function view($name, $data = [])
+function view(string $name, array $data = [])
 {
     extract($data);
 
@@ -20,7 +20,7 @@ function view($name, $data = [])
  *
  * @param string $name
  */
-function redirect($name)
+function redirect(string $name)
 {
     header("Location: /$name");
 }

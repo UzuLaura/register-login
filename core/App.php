@@ -6,7 +6,6 @@ use Exception;
 
 class App
 {
-
     /**
      * @var array of app data
      */
@@ -15,10 +14,10 @@ class App
     /**
      * Set key and value in registry array.
      *
-     * @param $key
-     * @param $value
+     * @param string $key
+     * @param mixed $value
      */
-    public static function bind($key, $value)
+    public static function bind(string $key, $value)
     {
         self::$registry[$key] = $value;
 
@@ -27,12 +26,12 @@ class App
     /**
      * Get registry array value by key.
      *
-     * @param $key
+     * @param string $key
      * @return mixed
      *
      * @throws Exception
      */
-    public static function get($key)
+    public static function get(string $key)
     {
         if(!array_key_exists($key, self::$registry)) {
             throw new Exception("No $key is bound in the container");

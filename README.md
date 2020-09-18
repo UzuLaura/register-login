@@ -1,27 +1,7 @@
-# Liko Padaryti:
-----------------
-* Prisijungus turi atsidaryti vartotojo profilis, kuriame rodome el. pašto adresą, vardą, pavardę, telefono numerį, registracijos datą ir atsijungimo mygtuką.
-  
-* Kode detaliai komentuoti savo veiksmus   
-  
-* Vartotojų duomenų bazės struktūra (reikia migraciju):
-  
-        user_id,
-  
-        email,
-  
-        name,
-  
-        last_name,
-  
-        phone,
-  
-        password,
-  
-        registered_at (fiksuojame kada vartotojas užsiregistravo),
-  
-        last_login_at (fiksuojame paskutinio prisijungimo laiką) - aprasyti db update
-  
-* Aprasyti css
-
-* Supildyti Readme faila.
+# How to set up app on your device
+------------------------------------
+1. Run `composer install` in command line while in project directory.
+2. Set up hosting for project.
+3. Set up database connection in `./config.php`.
+4. Run database migration by entering `php script.php migrate` in command line while in project directory.
+5. App is ready to use :)

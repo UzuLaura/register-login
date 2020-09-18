@@ -6,6 +6,13 @@ use App\Models\User;
 
 class RegistrationController
 {
+    /**
+     * Registration functionality.
+     *
+     * @return mixed
+     *
+     * @throws \Exception
+     */
     public function register()
     {
         $validationRules = [
@@ -17,6 +24,7 @@ class RegistrationController
             'password_repeat' => ['required', 'match:password']
         ];
 
+        // Validate request and get errors if any exist
         $errors = ValidationController::validate($_POST, $validationRules);
 
         if (isset($errors)) {

@@ -6,6 +6,13 @@ use App\Models\User;
 
 class LoginController
 {
+    /**
+     * Login functionality.
+     *
+     * @return mixed
+     *
+     * @throws \Exception
+     */
     public function login()
     {
         $user = User::where("email = \"${_POST['email']}\"");
@@ -15,23 +22,26 @@ class LoginController
             // Set user data in session
             $_SESSION['user'] = $user[0];
 
-            // Set last login date in db
-
-
-            return view('home', [
-                'user' => $user[0]
+            // Set last login date in DB
+            User::update($user[0], [
+                'last_login_at' => date("Y-m-d H:i:s"),
             ]);
+
+            return redirect('');
         };
 
         return view('login', [
-            'error' => 'Access denied. Check if provided login data is correct.'
+            'errors' => ['Access denied. Check if provided login data is correct.']
         ]);
     }
 
+    /**
+     * Logout functionality.
+     */
     public function logout()
     {
         unset($_SESSION['user']);
 
-        return view('login');
+        return redirect('login');
     }
 }

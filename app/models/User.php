@@ -13,7 +13,7 @@ class User
      *
      * @throws \Exception
      */
-    public static function create($user)
+    public static function create(array $user)
     {
         App::get('database')->insert('users', [
             'name' => $user['name'],
@@ -47,8 +47,23 @@ class User
      *
      * @throws \Exception
      */
-    public static function where($condition)
+    public static function where(string $condition)
     {
         return self::get($condition);
+    }
+
+    /**
+     * Update user data in DB.
+     *
+     * @param object $user - user data retrieved from DB
+     * @param array $update - table column name (array index) and new value (array value)
+     *
+     * @throws \Exception
+     */
+    public static function update($user, array $update)
+    {
+        App::get('database')->update('users', $update,
+            'user_id = ' . $user->user_id
+        );
     }
 }

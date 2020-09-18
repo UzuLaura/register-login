@@ -7,96 +7,103 @@ if (isset($_SESSION['user'])) {
 ?>
 <!doctype html>
 <html lang="en">
+
+<!--Head-->
 <?php include_once 'layouts/head.php'; ?>
+
 <body>
+<header>
 
-<!--Navbar-->
-<?php include_once 'components/navbar.php'; ?>
+    <!--Navbar-->
+    <?php include_once 'components/navbar.php'; ?>
 
-<div class="container py-5">
+</header>
+<main class="container">
 
+    <!--Errors-->
     <?php if (isset($errors)): ?>
-
-        <?php foreach ($errors as $error): ?>
-
-            <div class="alert alert-danger" role="alert">
-                <?= $error; ?>
-            </div>
-
-        <?php endforeach; ?>
-
+        <?php include 'components/errors.php'; ?>
     <?php endif; ?>
 
-    <form method="post" action="/register">
-        <!--Name input group-->
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text"
-                   value="<?= isset($fields['name']) ? $fields['name'] : ''; ?>"
-                   name="name"
-                   class="form-control"
-                   id="name"
-                   placeholder="Enter name">
-        </div>
+    <div class="card">
 
-        <!--Last Name input group-->
-        <div class="form-group">
-            <label for="last_name">Last Name</label>
-            <input type="text"
-                   value="<?= isset($fields['last_name']) ? $fields['last_name'] : ''; ?>"
-                   name="last_name"
-                   class="form-control"
-                   id="last_name"
-                   placeholder="Enter last name">
-        </div>
+        <!--Form Heading-->
+        <h2>Registration</h2>
 
-        <!--Email input group-->
-        <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="text"
-                   value="<?= isset($fields['email']) ? $fields['email'] : ''; ?>"
-                   name="email"
-                   class="form-control"
-                   id="email"
-                   aria-describedby="emailHelp"
-                   placeholder="Enter email">
-        </div>
+        <!--Registration Form-->
+        <form method="post" action="/register">
 
-        <!--Phone Number input group-->
-        <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="text"
-                   value="<?= isset($fields['phone']) ? $fields['phone'] : ''; ?>"
-                   name="phone"
-                   class="form-control"
-                   id="phone"
-                   placeholder="Enter your phone number">
-        </div>
+            <!--Name input group-->
+            <div class="form-group">
+                <label for="registration-name">Name</label>
+                <input type="text"
+                       value="<?= isset($fields['name']) ? $fields['name'] : ''; ?>"
+                       name="name"
+                       id="registration-name"
+                       placeholder="Enter name"
+                       required>
+            </div>
 
-        <!--Password input group-->
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password"
-                   name="password"
-                   class="form-control"
-                   id="exampleInputPassword1"
-                   placeholder="Password">
-        </div>
+            <!--Last Name input group-->
+            <div class="form-group">
+                <label for="registration-last_name">Last Name</label>
+                <input type="text"
+                       value="<?= isset($fields['last_name']) ? $fields['last_name'] : ''; ?>"
+                       name="last_name"
+                       id="registration-last_name"
+                       placeholder="Enter last name"
+                       required>
+            </div>
 
-        <!--Password repeat input group-->
-        <div class="form-group">
-            <label for="exampleInputPassword2">Repeat password</label>
-            <input type="password"
-                   name="password_repeat"
-                   class="form-control"
-                   id="exampleInputPassword2"
-                   placeholder="Repeat password">
-        </div>
+            <!--Email input group-->
+            <div class="form-group">
+                <label for="registration-email">Email address</label>
+                <input type="text"
+                       value="<?= isset($fields['email']) ? $fields['email'] : ''; ?>"
+                       name="email"
+                       id="registration-email"
+                       placeholder="Enter email"
+                       required>
+            </div>
 
+            <!--Phone Number input group-->
+            <div class="form-group">
+                <label for="registration-phone">Phone Number</label>
+                <input type="text"
+                       value="<?= isset($fields['phone']) ? $fields['phone'] : ''; ?>"
+                       name="phone"
+                       id="registration-phone"
+                       placeholder="Enter your phone number"
+                       required>
+            </div>
 
-        <!--Submit button-->
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
+            <!--Password input group-->
+            <div class="form-group">
+                <label for="registration-password">Password</label>
+                <input type="password"
+                       name="password"
+                       id="registration-password"
+                       placeholder="Password"
+                       minlength="8"
+                       maxlength="12"
+                       required>
+            </div>
+
+            <!--Password repeat input group-->
+            <div class="form-group">
+                <label for="registration-password_repeat">Repeat password</label>
+                <input type="password"
+                       name="password_repeat"
+                       id="registration-password_repeat"
+                       placeholder="Repeat password"
+                       required>
+            </div>
+
+            <!--Submit button-->
+            <button type="submit" class="button">Submit</button>
+
+        </form>
+    </div>
+</main>
 </body>
 </html>

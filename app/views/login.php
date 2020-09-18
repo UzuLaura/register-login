@@ -7,46 +7,57 @@ if (isset($_SESSION['user'])) {
 ?>
 <!doctype html>
 <html lang="en">
+
+<!--Head-->
 <?php include_once 'layouts/head.php' ?>
+
 <body>
+<header>
 
-<!--Navbar-->
-<?php include_once 'components/navbar.php'; ?>
+    <!--Navbar-->
+    <?php include_once 'components/navbar.php'; ?>
 
-    <?php if (isset($error)): ?>
+</header>
+<main class="container">
 
-        <div class="">
-            <?= $error; ?>
-        </div>
-
+    <!--Errors-->
+    <?php if (isset($errors)): ?>
+        <?php include 'components/errors.php'; ?>
     <?php endif; ?>
 
+    <div class="card">
+
+        <!--Form Heading-->
+        <h2>Login</h2>
+
+        <!--Registration Form-->
         <form method="post" action="/login">
 
             <!--Email input group-->
-            <div class="">
-                <label for="exampleInputEmail1">Email address</label>
+            <div class="form-group">
+                <label for="login-email">Email address</label>
                 <input type="email"
                        name="email"
-                       class=""
-                       id="exampleInputEmail1"
-                       aria-describedby="emailHelp"
-                       placeholder="Enter email">
+                       id="login-email"
+                       placeholder="Enter email"
+                       required>
             </div>
 
             <!--Password input group-->
-            <div class="">
-                <label for="exampleInputPassword1">Password</label>
+            <div class="form-group">
+                <label for="login-password">Password</label>
                 <input type="password"
                        name="password"
-                       class=""
-                       id="exampleInputPassword1"
-                       placeholder="Password">
+                       id="login-password"
+                       placeholder="Password"
+                       required>
             </div>
 
             <!--Submit button-->
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+            <button type="submit" class="button">Submit</button>
 
+        </form>
+    </div>
+</main>
 </body>
 </html>

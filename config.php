@@ -1,6 +1,7 @@
 <?php
 
 return [
+    // Database connection info
     'database' => [
         'name' => 'login-register',
         'username' => 'root',
